@@ -1,0 +1,11 @@
+services:
+  h2database:
+    image: oscarfonts/h2
+    ports:
+      - "8082:8082"  # Porta do console web
+      - "9092:9092"  # Porta do servidor TCP
+    volumes:
+      - ./h2data:/opt/h2-data
+    environment:
+      - H2_OPTIONS=-ifNotExists  # Permite a criação de novas tabelas se não existirem
+    restart: always

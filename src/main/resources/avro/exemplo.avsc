@@ -1,0 +1,43 @@
+{
+    "type": "record",
+    "name": "Exemplo",
+    "javaAnnotation": "org.springframework.validation.annotation.Validated", 
+    "namespace": "com.example.demo.generated.avro",
+    "fields": [
+      {
+        "name": "numero",
+        "type": {
+          "type": "int",
+          "logicalType": "range",
+          "ranges": [
+            {"min": 0, "max": 50}
+          ]
+        },
+        "javaAnnotation": "jakarta.validation.constraints.Min.List({ @jakarta.validation.constraints.Min(value = 0, message = \"O valor deve ser no mínimo 0\")}) @jakarta.validation.constraints.Max.List({@jakarta.validation.constraints.Max(value = 50, message = \"O valor deve ser no máximo 50\")})", 
+        "default": 0,
+        "doc": "Um inteiro entre 0 e 50."
+      },
+      {
+        "name": "indicador",
+        "type": {
+          "type": "int",
+          "logicalType": "range",
+          "ranges": [
+            {"min": 0, "max": 50},
+            {"min": 100, "max": 150}
+          ]
+        },
+        "javaAnnotation": "jakarta.validation.constraints.Min.List({ @jakarta.validation.constraints.Min(value = 0, message = \"O valor deve ser no mínimo 0\"), @jakarta.validation.constraints.Min(value = 100, message = \"O valor deve ser no mínimo 100 se for maior que 50\")})\n@jakarta.validation.constraints.Max.List({@jakarta.validation.constraints.Max(value = 50, message = \"O valor deve ser no máximo 50\"), @jakarta.validation.constraints.Max(value = 150, message = \"O valor deve ser no máximo 150\")})", 
+        "default": 0,
+        "doc": "Um inteiro entre 0 e 50 ou entre 100 e 150."
+      },
+      {
+        "name": "texto",
+        "type": "string",
+        "maxLength": 50,
+        "javaAnnotation": "jakarta.validation.constraints.Size(max = 50, message = \"O texto não pode ter mais de 50 caracteres.\")", 
+        "doc": "Uma string que suporta até 50 caracteres."
+      }
+    ]
+  }
+  
